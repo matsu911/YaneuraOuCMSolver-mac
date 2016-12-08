@@ -1,4 +1,4 @@
-﻿#include "../shogi.h"
+#include "../shogi.h"
 #ifdef COOPERATIVE_MATE_SOLVER
 
 #include <atomic>
@@ -64,7 +64,7 @@ namespace CooperativeMate
         // 空のエントリーを見つけた(そこまではkeyが合致していないので見つからなかったものとして終了)
         if (!tte[i].key())
           break;
-        
+
         // keyが合致しているentryを見つけた。
         if (tte[i].found(key))
         {
@@ -149,7 +149,7 @@ namespace CooperativeMate
       // 先手と後手との局面はhash keyの下位1bitで判別しているので、
       // 先手用の局面と後手用の局面とでTTEntryは別のところになって欲しいから。
       clusterCount = (mbSize * 1024 * 1024 / sizeof(Cluster)) & ~UINT64_C(1);
-      
+
       mem = calloc(clusterCount * sizeof(Cluster) + CacheLineSize - 1, 1);
       if (!mem)
       {

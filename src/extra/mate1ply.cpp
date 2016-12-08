@@ -1,4 +1,4 @@
-﻿#include "../shogi.h"
+#include "../shogi.h"
 #include "../position.h"
 
 // 超高速1手詰め判定ライブラリ
@@ -225,7 +225,7 @@ MOVE_MATE:
   //   a)があること自体が稀なのでこのチェックを高速化しして、a)があったときの処理はそれほど高速化に力を入れない。
   // (レアケースでしか起きないことのために大きなテーブルを使うわけにはいかない)
   // 影の利きがあって詰むパターンは対象外。
-  
+
 
 
   return MOVE_NONE;
@@ -237,4 +237,3 @@ Move Position::mate1ply() const
 }
 
 #endif
-

@@ -1,4 +1,4 @@
-﻿#ifndef _SHOGI_H_
+#ifndef _SHOGI_H_
 #define _SHOGI_H_
 
 //
@@ -23,7 +23,7 @@
 // このシンボルをdefineしなければ、pext命令をソフトウェアでエミュレートする。
 // 古いCPUのPCで開発をしたていて、遅くてもいいからともかく動いて欲しいときにそうすると良い。
 
-#define USE_AVX2
+/* #define USE_AVX2 */
 
 // SSE4.2以降でサポートされた命令を使うか。
 // このシンボルをdefineしなければ、popcnt命令をソフトウェアでエミュレートする。
@@ -564,9 +564,9 @@ std::ostream& operator<<(std::ostream& os, Piece pc);
 // Positionクラスで用いる、駒リスト(どの駒がどこにあるのか)を管理するときの番号。
 enum PieceNo {
   PIECE_NO_PAWN = 0, PIECE_NO_LANCE = 18, PIECE_NO_KNIGHT = 22, PIECE_NO_SILVER = 26,
-  PIECE_NO_GOLD = 30, PIECE_NO_BISHOP = 34, PIECE_NO_ROOK = 36, PIECE_NO_KING = 38, 
+  PIECE_NO_GOLD = 30, PIECE_NO_BISHOP = 34, PIECE_NO_ROOK = 36, PIECE_NO_KING = 38,
   PIECE_NO_BKING = 38, PIECE_NO_WKING = 39, // 先手、後手の玉の番号が必要な場合はこっちを用いる
-  PIECE_NO_ZERO = 0, PIECE_NO_NB = 40, 
+  PIECE_NO_ZERO = 0, PIECE_NO_NB = 40,
 };
 
 // PieceNoの整合性の検査。assert用。
@@ -588,7 +588,7 @@ enum Move : uint16_t {
 
 // 指し手の移動元の升を返す
 constexpr Square move_from(Move m) { return Square((m >> 7) & 0x7f); }
-  
+
 // 指し手の移動先の升を返す
 constexpr Square move_to(Move m) { return Square(m & 0x7f); }
 
@@ -660,7 +660,7 @@ inline std::ostream& operator<<(std::ostream& os, ExtMove m) { os << m.move << '
 // 手駒
 // 歩の枚数を8bit、香、桂、銀、角、飛、金を4bitずつで持つ。こうすると16進数表示したときに綺麗に表示される。(なのはのアイデア)
 enum Hand : int32_t { HAND_ZERO = 0, };
- 
+
 // 手駒のbit位置
 constexpr int PIECE_BITS[PIECE_HAND_NB] = { 0, 0 /*歩*/, 8 /*香*/, 12 /*桂*/, 16 /*銀*/, 20 /*角*/, 24 /*飛*/ , 28 /*金*/ };
 
@@ -747,7 +747,7 @@ enum MOVE_GEN_TYPE
   // BonanzaではCAPTURESに銀以外の成りを含めていたが、Aperyでは歩の成り以外は含めない。
   // あまり変な成りまで入れるとオーダリングを阻害する。
   // 本ソースコードでは、NON_CAPTURESとCAPTURESは使わず、CAPTURES_PRO_PLUSとNON_CAPTURES_PRO_MINUSを使う。
-  
+
   // note : NON_CAPTURESとCAPTURESとの生成される指し手の集合は被覆していない。
   // note : CAPTURES_PRO_PLUSとNON_CAPTURES_PRO_MINUSとの生成される指し手の集合も被覆していない。
   // →　被覆させないことで、二段階に指し手生成を分解することが出来る。
@@ -782,7 +782,7 @@ struct MoveList {
   // このclassのbegin(),end()が正常な値を返すようになる。
   // CHECKS,CHECKS_NON_PRO_PLUSを生成するときは、事前にpos.check_info_update();でCheckInfoをupdateしておくこと。
   explicit MoveList(const Position& pos) : last(generateMoves<GenType>(pos, mlist)){}
-    
+
   // 内部的に持っている指し手生成バッファの先頭
   const ExtMove* begin() const { return mlist; }
 
@@ -868,7 +868,7 @@ namespace Search {
     EKR_27_POINT,   // 27点法 = CSAルール
     EKR_TRY_RULE,   // トライルール
   };
-  
+
 } // end of namespace Search
 
 // --------------------

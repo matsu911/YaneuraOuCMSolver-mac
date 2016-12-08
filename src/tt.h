@@ -1,4 +1,4 @@
-﻿#ifndef _TT_H_
+#ifndef _TT_H_
 #define _TT_H_
 
 #include "shogi.h"

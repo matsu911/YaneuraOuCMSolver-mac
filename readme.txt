@@ -1,39 +1,38 @@
-��˂��牤 ���͋l��solver
+やねうら王 協力詰めsolver
 
-] �g����
+] 使い方
 
-�������EShogiGUI����l�����G���W���Ƃ��ēo�^���Ďg���܂��B(�vBMI2 / Haswell�ȍ~)
+将棋所・ShogiGUIから詰将棋エンジンとして登録して使えます。(要BMI2 / Haswell以降)
 
-���͋l��(�΂��l��)���������������܂��B���萔�̂��̂�A�ω����������͉̂����Ȃ��ꍇ������܂��B�Ƃ肠�����A�w������3�x(49909��)�͉����܂����B
+協力詰め(ばか詰め)がそこそこ解けます。長手数のものや、変化が多いものは解けない場合もあります。とりあえず、『寿限無3』(49909手)は解けました。
 
-���@���͋l�߂Ƃ͐�肪����̘A���Ŕ���A�����l�݂ɋ��͂���^�C�v�̋l�����̂��Ƃł��B
-���@��i�W : http://www.ne.jp/asahi/tetsu/toybox/kato/index.htm
+※　協力詰めとは先手が王手の連続で迫り、後手も詰みに協力するタイプの詰将棋のことです。
+※　作品集 : http://www.ne.jp/asahi/tetsu/toybox/kato/index.htm
 
-�u���\�T�C�Y�́A�v�l�G���W���ݒ�̂ق��ɂ���uCM_Hash ���͋l�ߒu���\�T�C�Y[mb]�v�̂ق��Ŏw�肵�Ă��������B�傫���ق������ʂ�����܂��B2�ׂ̂���ł���K�v�͂���܂���B�Ⴆ�΁A32GB�������𓋍ڂ��Ă���Ȃ�28GB(MB�P�ʂȂ̂�"28000"�Ǝw�肷��)���炢�m�ۂ���ƌ��ʓI�ł��傤�B
+置換表サイズは、思考エンジン設定のほうにある「CM_Hash 協力詰め置換表サイズ[mb]」のほうで指定してください。大きいほうが効果があります。2のべき乗である必要はありません。例えば、32GBメモリを搭載しているなら28GB(MB単位なので"28000"と指定する)ぐらい確保すると効果的でしょう。
 
-�{�o�C�i���́A��˂��牤mini�v���W�F�N�g�̕��Y���ł��B
+本バイナリは、やねうら王miniプロジェクトの副産物です。
 
-��˂��牤mini�v���W�F�N�g�ɂ��ďڂ����͈ȉ��̃T�C�g���������������B
+やねうら王miniプロジェクトについて詳しくは以下のサイトをご覧ください。
 http://yaneuraou.yaneu.com/yaneuraou_mini/
 
-�Ȃ��A�{solver�̍ŐV�ł́A�ȉ��̂Ƃ��납��_�E�����[�h�ł��܂��B
-�܂��A�ǂ̒��҂����������̏������̃y�[�W���ɂ���܂��B
+なお、本solverの最新版は、以下のところからダウンロードできます。
+また、どの長編が解けたかの情報もそのページ内にあります。
 
-���͋l��solver�����J���܂�
+協力詰めsolverを公開します
 http://yaneuraou.yaneu.com/2016/01/02/%E5%8D%94%E5%8A%9B%E8%A9%B0%E3%82%81solver%E3%82%92%E5%85%AC%E9%96%8B%E3%81%97%E3%81%BE%E3%81%99/
 
-] �\�[�X�R�[�h
+] ソースコード
 
-�\�[�X�R�[�h�����Ă����܂��B
-Stockfish�̃\�[�X�R�[�h���ۂ��Ƃ�������邽�߁A���C�Z���X��GPLv3�Ƃ��܂��B
+ソースコードもつけておきます。
+Stockfishのソースコードっぽいところもあるため、ライセンスはGPLv3とします。
 
-] �X�V����
+] 更新履歴
 
-2016/01/11 version 0.80�����[�X�B1��l�ߕ\���ł��Ȃ������̂��C���B
-2016/01/08 version 0.75�����[�X�B�}����A�C���B
-2016/01/07 version 0.73�����[�X�B�o�O�ŉ����Ȃ��Ȃ��Ă��钷�҂��������̂ŏC�����܂����B
-2016/01/06 version 0.71�����[�X�B���񉻑Ή��B�w�������x��100�b�ŉ����܂����B
-2016/01/04 version 0.65�����[�X�B�z�ǖʂ̎}����ǉ��B�����[��2�肸�ɕύX�B�O�̃o�[�W�����̔������炢�̎��Ԃŉ�����悤�ɂȂ�܂����B
-2016/01/03 version 0.64�����[�X�Bone reply�̏����A�o�O���Ă��̂ŏC���B
-2016/01/02 version 0.62�����[�X
-
+2016/01/11 version 0.80リリース。1手詰め表示できなかったのを修正。
+2016/01/08 version 0.75リリース。枝刈り、修正。
+2016/01/07 version 0.73リリース。バグで解けなくなっている長編があったので修正しました。
+2016/01/06 version 0.71リリース。並列化対応。『寿限無』が100秒で解けました。
+2016/01/04 version 0.65リリース。循環局面の枝刈り追加。反復深化2手ずつに変更。前のバージョンの半分ぐらいの時間で解けるようになりました。
+2016/01/03 version 0.64リリース。one replyの処理、バグってたので修正。
+2016/01/02 version 0.62リリース

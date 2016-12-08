@@ -1,4 +1,4 @@
-﻿#ifndef EVALUATE_H
+#ifndef EVALUATE_H
 #define EVALUATE_H
 
 #include "shogi.h"
@@ -64,7 +64,7 @@ enum BonaPiece : int16_t
   f_king = fe_end,
   e_king = f_king + SQ_NB,
   fe_end2 = e_king + SQ_NB, // 玉も含めた末尾の番号。
-  
+
   // 末尾は評価関数の性質によって異なるので、BONA_PIECE_NBを定義するわけにはいかない。
 };
 

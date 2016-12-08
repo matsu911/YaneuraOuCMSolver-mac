@@ -1,4 +1,4 @@
-﻿#include <sstream>
+#include <sstream>
 
 #include "shogi.h"
 #include "position.h"
@@ -228,7 +228,7 @@ void go_cmd(const Position& pos, istringstream& is) {
 
       // USIプロトコルで送られてきた秒読み時間より少なめに思考する設定
       // ※　通信ラグがあるときに、ここで少なめに思考しないとタイムアップになる可能性があるので。
-    
+
       // t = std::max(t - Options["ByoyomiMinus"], Time::point(0));
 
       // USIプロトコルでは、これが先手後手同じ値だと解釈する。

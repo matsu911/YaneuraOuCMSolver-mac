@@ -1,4 +1,4 @@
-﻿#include <sstream>
+#include <sstream>
 #include <iostream>
 
 #include "shogi.h"
@@ -7,7 +7,7 @@
 #include "thread.h"
 
 // ----------------------------------------
-// operator<<(std::ostream& os,...)とpretty() 
+// operator<<(std::ostream& os,...)とpretty()
 // ----------------------------------------
 
 std::string pretty(File f) { return pretty_jp ? std::string("１２３４５６７８９").substr((int32_t)f * 2, 2) : std::to_string((int32_t)f + 1); }

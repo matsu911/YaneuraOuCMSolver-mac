@@ -1,4 +1,4 @@
-﻿#include <algorithm>
+#include <algorithm>
 #include <sstream>
 #include <iostream>
 
@@ -174,7 +174,7 @@ void Bitboards::init()
 
     return result;
   };
-  
+
   // 角と飛車の利きテーブルの初期化
   for (Piece pc : {BISHOP,ROOK} )
   {
@@ -219,7 +219,7 @@ void Bitboards::init()
     effectIndex[SQ_NB] = index;
   }
 
-  
+
   // 3. 香の利きテーブルの初期化
   // 上で初期化した飛車の利きを用いる。
 
@@ -395,7 +395,7 @@ void Bitboards::init()
       target = ZERO_BB;
       FOREACH_BR(horseEffect(ksq, ZERO_BB), horseEffect);
       CheckCandidateBB[ksq][ROOK - 1][Us] = target & ~Bitboard(ksq);
-      
+
       // 王(24近傍が格納される)
       target = ZERO_BB;
       FOREACH_KING(kingEffect(ksq) , kingEffect);
@@ -403,4 +403,3 @@ void Bitboards::init()
     }
 
 }
-

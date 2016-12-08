@@ -1,4 +1,4 @@
-﻿#include "all.h"
+#include "all.h"
 
 #if 1
 // USI拡張コマンド"user"が送られてくるとこの関数が呼び出される。実験に使ってください。

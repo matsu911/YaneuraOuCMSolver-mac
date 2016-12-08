@@ -1,4 +1,4 @@
-﻿#include "tt.h"
+#include "tt.h"
 
 TranspositionTable TT; // 置換表をglobalに確保。
 
@@ -76,7 +76,7 @@ TTEntry* TranspositionTable::probe(const Key key, bool& found) const {
   //   a := generationは下位2bitは用いていないので0。
   //   b := genBound8は下位2bitにはBoundが入っているのでこれはゴミと考える。
   // ( 256 + a - b + c) & 0xfc として c = 3としても結果に影響は及ぼさない、かつ、このゴミを無視した計算が出来る。
-  
+
   return found = false, replace;
 }
 

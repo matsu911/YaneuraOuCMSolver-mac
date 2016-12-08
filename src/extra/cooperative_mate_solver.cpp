@@ -1,8 +1,8 @@
-﻿#include "../shogi.h"
+#include "../shogi.h"
 #ifdef COOPERATIVE_MATE_SOLVER
 
 #include "all.h"
-#include "cooperative_mate_solver.h" 
+#include "cooperative_mate_solver.h"
 
 using namespace std;
 using namespace Search;

@@ -1,4 +1,4 @@
-﻿#ifndef _POSITION_H_
+#ifndef _POSITION_H_
 #define _POSITION_H_
 
 #include "shogi.h"
@@ -131,7 +131,7 @@ struct Position
 
   // Positionで用いるZobristテーブルの初期化
   static void init();
-  
+
   // sfen文字列で盤面を設定する
   // ※　内部的にinit()は呼び出される。
   void set(std::string sfen);
@@ -297,7 +297,7 @@ struct Position
 
   // 駒を盤面から取り除き、内部的に保持しているBitboardも更新する。
   void remove_piece(Square sq);
-  
+
   // 指し手mで王手になるかを判定する。
   // 指し手mはpseudo-legal(擬似合法)の指し手であるものとする。
   // 事前にcheck_info_update()が呼び出されていること。
@@ -443,7 +443,7 @@ inline void Position::put_piece(Square sq, Piece pc,PieceNo piece_no)
 
   // 駒番号をセットしておく必要がある。
   ASSERT_LV3(is_ok(piece_no));
-  
+
   // evalListのほうを更新しないといけない
   evalList.put_piece(piece_no,sq,pc); // sqの升にpcの駒を配置する
 

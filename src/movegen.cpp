@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 
 #include "shogi.h"
 #include "position.h"
@@ -72,7 +72,7 @@ template <Piece Pt, Color Us, bool All> struct make_move_target {
       }
       break;
 
-      // 成れるなら成りも生成する駒 
+      // 成れるなら成りも生成する駒
     case SILVER:
       if (enemy_field(Us) & from) {
         // 敵陣からなら成れることは確定している
@@ -283,7 +283,7 @@ template<Color US, bool All>
 
     // 両王手であるなら、王の移動のみが回避手となる。ゆえにこれで指し手生成は終了。
     if (checkersCnt > 1)
-      return mlist; 
+      return mlist;
 
     // 両王手でないことは確定した
 
@@ -297,7 +297,7 @@ template<Color US, bool All>
 
     const Bitboard target1 = between_bb(checksq, ksq);
     const Bitboard target2 = target1 | checksq;
-    
+
     // あとはNON_EVASIONS扱いで普通に指し手生成。
     mlist = GeneratePieceMoves<NON_EVASIONS, PAWN, US, All>()(pos, mlist, target2);
     mlist = GeneratePieceMoves<NON_EVASIONS, LANCE, US, All>()(pos, mlist, target2);
@@ -402,7 +402,7 @@ template <Color US> struct GenerateDropMoves {
       {
         // 香と桂を持っていないので駒を打てる全域に対して何も考えずに指し手を生成。
         Bitboard target2 = target;
-          
+
         switch (num)
         {
         case 1: FOREACH_BB(target2, sq, { UNROLLER1({ mlist++->move = (Move)(drops[i] + sq); }); }); break;
@@ -417,7 +417,7 @@ template <Color US> struct GenerateDropMoves {
         Bitboard target1 = target & rank1_n_bb(US, RANK_1); // 1段目
         Bitboard target2 = target & (US == BLACK ? RANK2_BB : RANK8_BB); // 2段目
         Bitboard target3 = target & rank1_n_bb(~US, RANK_7); // 3～9段目( == 後手から見たときの1～7段目)
-        
+
         switch (num -  nextToLance) // 1段目に対する香・桂以外の駒打ちの指し手生成(最大で4種の駒)
         {
         case 0: break; // 香・桂以外の持ち駒がないケース
@@ -720,7 +720,7 @@ ExtMove* generate_checks(const Position& pos, ExtMove* mlist)
 
   const Bitboard y = ci.dcCandidates;
   const Bitboard target = ~pos.pieces(Us); // 自駒がない場所が移動対象升
-  
+
   // yのみ。ただしxかつyである可能性もある。
   auto src = y;
   while (src)

@@ -1,4 +1,4 @@
-﻿#include <fstream>
+#include <fstream>
 #include <iomanip>
 #include <iostream>
 #include <sstream>
@@ -15,7 +15,7 @@ using namespace std;
 const string engine_info() {
 
   stringstream ss;
-  
+
   ss <<
 #ifdef    COOPERATIVE_MATE_SOLVER
       "YaneuraOu_CoopMateSolver "
@@ -97,4 +97,3 @@ private:
 };
 
 void start_logger(bool b) { Logger::start(b); }
-

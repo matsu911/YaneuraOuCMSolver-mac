@@ -1,4 +1,4 @@
-﻿#ifndef _THREAD_H_
+#ifndef _THREAD_H_
 #define _THREAD_H_
 
 #include <atomic>
@@ -52,7 +52,7 @@ protected:
 
   // idle_loop()で待機しているときに待つ対象
   ConditionVariable sleepCondition;
-  
+
   // notify_one()するときに使うmutex
   Mutex mutex;
 
@@ -81,7 +81,7 @@ struct Thread : public ThreadBase
   // スレッドidが返る。
   // MainThreadなら0、slaveなら1,2,3,...
   size_t thread_id() const { return idx; }
-  
+
   // main threadであるならtrueを返す。
   bool is_main() const { return idx == 0; }
 

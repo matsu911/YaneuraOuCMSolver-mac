@@ -1,4 +1,4 @@
-﻿#ifndef _KEY128_H_
+#ifndef _KEY128_H_
 #define _KEY128_H_
 
 #include "../shogi.h"

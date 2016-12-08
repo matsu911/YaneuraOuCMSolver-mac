@@ -1,4 +1,4 @@
-﻿#ifndef _BITBOARD_H_
+#ifndef _BITBOARD_H_
 #define _BITBOARD_H_
 
 #include "shogi.h"
@@ -44,7 +44,7 @@ struct alignas(16) Bitboard
 
   // sqの升が1のBitboardとして初期化する。
   Bitboard(Square sq);
-  
+
   // 値を直接代入する。
   void set(uint64_t p0, uint64_t p1) { p[0] = p0; p[1] = p1; }
 
@@ -178,7 +178,7 @@ const Bitboard RANK9_BB = Bitboard(UINT64_C(0x40201008040201) << 8, 0x201 << 8);
 const Bitboard FILE_BB[FILE_NB] = { FILE1_BB,FILE2_BB,FILE3_BB,FILE4_BB,FILE5_BB,FILE6_BB,FILE7_BB,FILE8_BB,FILE9_BB };
 
 // 各段を表現するBitboard配列
-const Bitboard RANK_BB[RANK_NB] = { RANK1_BB,RANK2_BB,RANK3_BB,RANK4_BB,RANK5_BB,RANK6_BB,RANK7_BB,RANK8_BB,RANK9_BB }; 
+const Bitboard RANK_BB[RANK_NB] = { RANK1_BB,RANK2_BB,RANK3_BB,RANK4_BB,RANK5_BB,RANK6_BB,RANK7_BB,RANK8_BB,RANK9_BB };
 
 // InFrontBBの定義)
 //    c側の香の利き = 飛車の利き & InFrontBB[c][rank_of(sq)]

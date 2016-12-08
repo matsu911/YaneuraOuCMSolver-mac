@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <sstream>
 
 #include "position.h"
@@ -162,7 +162,7 @@ void Position::set(std::string sfen)
     // 数字は、空の升の数なのでその分だけ筋(File)を進める
     if (isdigit(token))
       f -= File(token - '0');
-    // '/'は次の段を意味する                              
+    // '/'は次の段を意味する
     else if (token == '/')
     {
       f = FILE_9;
@@ -174,7 +174,7 @@ void Position::set(std::string sfen)
     // 駒文字列か？
     else if ((idx = PieceToCharBW.find(token)) != string::npos)
     {
-      PieceNo piece_no = 
+      PieceNo piece_no =
         (idx == B_KING) ? PIECE_NO_BKING : // 先手玉
         (idx == W_KING) ? PIECE_NO_WKING : // 後手玉
         piece_no_count[raw_type_of(Piece(idx))]++; // それ以外
@@ -310,7 +310,7 @@ const std::string Position::sfen() const
 
   // 手駒がない場合はハイフンを出力
   ss << (found ? " " : "- " );
-  
+
   // --- 初期局面からの手数
   ss << gamePly;
 
@@ -874,14 +874,14 @@ void Position::do_move(Move m, StateInfo& new_st, bool givesCheck)
     } else
       st->checkersBB = ZERO_BB;
   }
-  
+
   st->materialValue = (Value)(st->previous->materialValue + (Us == BLACK ? materialDiff : -materialDiff));
 
   // 相手番に変更する。
   sideToMove = ~Us;
 
   // --- 探索ノード数、rootからの手数などを更新。
- 
+
   // 更新されたhash keyをStateInfoに書き戻す。
   st->key_board_ = k;
   st->key_hand_ = h;
@@ -911,7 +911,7 @@ void Position::undo_move(Move m)
 
     // toの場所にある駒を手駒に戻す
     Piece pt = raw_type_of(to_pc);
-   
+
     evalList.put_piece(piece_no, sideToMove, pt, hand_count(hand[sideToMove], pt));
     add_hand(hand[sideToMove], pt);
 

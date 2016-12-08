@@ -1,4 +1,4 @@
-﻿#ifndef _ALL_H_
+#ifndef _ALL_H_
 #define _ALL_H_
 
 // すべてのheaderを読み込むheader

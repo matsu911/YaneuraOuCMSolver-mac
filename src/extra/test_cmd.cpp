@@ -1,4 +1,4 @@
-﻿#include "../shogi.h"
+#include "../shogi.h"
 
 // USI拡張コマンドのうち、開発上のテスト関係のコマンド。
 // 思考エンジンの実行には関係しない。GitHubにはcommitしないかも。
@@ -385,7 +385,7 @@ void generate_moves_cmd(Position& pos)
 void test_hand()
 {
   cout << "Test Hand start : is_superior()" << endl;
-  
+
   for (int i = 0; i < 128; ++i)
     for (int j = 0; j < 128; ++j)
     {

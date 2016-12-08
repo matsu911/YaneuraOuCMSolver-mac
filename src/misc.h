@@ -1,4 +1,4 @@
-﻿#ifndef _MISC_H_
+#ifndef _MISC_H_
 #define _MISC_H_
 
 #include "shogi.h"
